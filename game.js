@@ -48,21 +48,13 @@ const scenes = {
     label: "DAY 1 · FAJR",
     text: `你在天还没有亮的时候醒来。
 
-屋子里很安静。
+屋子里很安静，远处清真寺传来声音。
 
-远处传来清真寺的声音。
-
-你坐起来。
-
-母亲已经醒了。
-
-她从房间里出来，轻声叫了你一句。
+母亲已经醒了，她从房间里出来，轻声叫了你一句。
 
 “起来了？”
 
-你点点头。
-
-没有人继续说话。`,
+你点点头。`,
     choices: [
       { text: "继续", effect: () => { state.flags.prayedFajr = true; }, next: "FAJR_END" }
     ]
@@ -71,15 +63,9 @@ const scenes = {
   FAJR_END: {
     time: "04:30",
     label: "晨礼",
-    text: `你完成晨礼。
+    text: `你完成晨礼，房间里重新安静下来。
 
-房间里重新安静下来。
-
-你躺回床上。
-
-窗外还是黑的。
-
-你闭上眼睛。`,
+窗外还是黑的。你躺回床上，闭上眼睛。`,
     choices: [
       { text: "睡一会儿", next: "BREAKFAST" }
     ]
@@ -88,31 +74,21 @@ const scenes = {
   BREAKFAST: {
     time: "05:43",
     label: "05:43 · 早餐",
-    text: `你再次醒来。
-
-天已经亮了。
+    text: `你再次醒来，天已经亮了。
 
 厨房里传来锅碗碰撞的声音。
 
 你穿好衣服，走出去。
 
-母亲正在整理早餐。
+母亲正在整理早餐，桌上有茶和面包。
 
-桌上有茶和面包。
-
-她看了一眼厨房角落。
-
-那里放着一个面粉袋。
-
-已经空了一半。
+她看了一眼厨房角落，那里放着一个空了一半的面粉袋。
 
 她说：
 
 “面粉不多了。”
 
-母亲又说：
-
-“今天最好买回来。”`,
+“今天最好买袋新的。”`,
     choices: [
       {
         text: "A　我去买。",
@@ -141,29 +117,27 @@ const scenes = {
     label: "早餐 · C02",
     text: `母亲没有马上回答。
 
-她看了看你。
-
-又看了一眼门。
+她看了看你，又看了一眼门。
 
 “你一个人？”`,
     choices: [
       {
-        text: "1　很快就回来。",
+        text: "A　很快就回来。",
         effect: () => { state.independence += 2; state.risk += 2; state.relationships.family -= 1; },
         next: "MORNING_HOME"
       },
       {
-        text: "2　那我等 Hamid。",
+        text: "B　那我等 Hamid。",
         effect: () => { state.relationships.hamid += 1; state.risk -= 1; },
         next: "MORNING_HOME"
       },
       {
-        text: "3　算了，我不去了。",
+        text: "C　算了，我不去了。",
         effect: () => { state.risk -= 2; state.independence -= 1; state.relationships.family += 1; },
         next: "MORNING_HOME"
       },
       {
-        text: "4　你觉得呢？",
+        text: "D　你觉得呢？",
         effect: () => { state.independence -= 1; state.relationships.family += 2; state.risk -= 1; },
         next: "MORNING_HOME"
       }
@@ -175,15 +149,11 @@ const scenes = {
     label: "06:30 · 家里",
     text: `你坐在门口喝茶。
 
-Sami 还没起床。
-
-母亲经过他的房间。
+Sami 还没起床，母亲经过他的房间。
 
 “Sami。”
 
-没有回应。
-
-她又叫了一次。
+没有回应。她又叫了一次。
 
 “起来。”
 
@@ -191,9 +161,7 @@ Sami 还没起床。
 
 “知道了。”
 
-你笑了一下。
-
-母亲也没说什么。`,
+你笑了一下。`,
     choices: [
       { text: "继续", next: "MESSAGES" }
     ]
@@ -202,11 +170,9 @@ Sami 还没起床。
   MESSAGES: {
     time: "07:10",
     label: "07:10 · 手机",
-    text: `你回到房间。
+    text: `回到房间。
 
-手机还有 31% 的电。
-
-有两个未读消息。
+手机还有 31% 的电，有两个未读消息。
 
 Hamid：
 “我晚一点过去。”
@@ -215,17 +181,17 @@ Laila：
 “姐姐，你醒了吗？”`,
     choices: [
       {
-        text: "1　回复 Laila。",
+        text: "A　回复 Laila。",
         effect: () => { state.relationships.laila += 2; },
         next: "C04"
       },
       {
-        text: "2　回复 Hamid。",
+        text: "B　回复 Hamid。",
         effect: () => { state.relationships.hamid += 2; },
         next: "AFTER_MESSAGES"
       },
       {
-        text: "3　两个都不回。",
+        text: "C　两个都不回。",
         effect: () => { state.relationships.laila -= 1; state.relationships.hamid -= 1; state.independence += 1; },
         next: "AFTER_MESSAGES"
       }
@@ -237,15 +203,11 @@ Laila：
     label: "07:15 · Laila",
     text: `几秒后：
 
-“来我这里。”
+“快来我这里。”
 
-你走到她房间。
+你走到Laila房间，她坐在床上，手里拿着一本旧书。
 
-Laila 坐在床上。
-
-手里拿着一本旧书。
-
-她把书递给你。
+见你来了，她把书递给你。
 
 “姐姐。”
 
@@ -253,7 +215,7 @@ Laila 坐在床上。
 
 “我想学英语。”
 
-你看了一眼书。
+你翻了几页书。
 
 “为什么？”
 
@@ -262,22 +224,22 @@ Laila 坐在床上。
 “以后有用。”`,
     choices: [
       {
-        text: "1　可以。",
+        text: "A　可以。",
         effect: () => { state.relationships.laila += 3; },
         next: "AFTER_MESSAGES"
       },
       {
-        text: "2　你想学什么？",
+        text: "B　你想学什么？",
         effect: () => { state.relationships.laila += 2; state.independence += 1; },
         next: "AFTER_MESSAGES"
       },
       {
-        text: "3　先把现在的东西学好。",
+        text: "C　先把现在的东西学好。",
         effect: () => { state.relationships.laila -= 1; },
         next: "AFTER_MESSAGES"
       },
       {
-        text: "4　我英语也不好。",
+        text: "D　我英语也不好。",
         effect: () => { state.relationships.laila += 2; state.flags.sisterLearningBond = true; },
         next: "AFTER_MESSAGES"
       }
@@ -292,7 +254,6 @@ Laila 坐在床上。
 Sami 正在找自己的鞋。
 
 母亲问：
-
 “今天还去吗？”
 
 Sami：
@@ -301,9 +262,7 @@ Sami：
 母亲：
 “那快一点。”
 
-你拿起最后一块面包。
-
-Sami 看着你。
+你拿起盘里最后一块面包，Sami 立刻扭头看着你。
 
 “给我留一点。”
 
@@ -316,9 +275,7 @@ Sami 看着你。
   HAMID_ARRIVES: {
     time: "09:10",
     label: "09:10 · Hamid",
-    text: `Hamid 来了。
-
-他站在门口。
+    text: `Hamid 来了，他站在门口。
 
 “要去市场吗？”
 
@@ -326,31 +283,29 @@ Sami 看着你。
 
 “面粉没了。”
 
-Hamid 点点头。
-
-然后看向你。
+Hamid 点点头，然后看向你。
 
 “你要去吗？”`,
     choices: [
       {
-        text: "1　去。",
+        text: "A　去。",
         effect: () => { state.flags.wentMarket = true; state.energy -= 10; state.relationships.hamid += 2; state.independence += 1; state.risk += 1; },
         next: "MARKET"
       },
       {
-        text: "2　不用，我留在家里。",
+        text: "B　不用，我留在家里。",
         effect: () => { state.risk -= 1; },
-        next: "C07"
+        next: "LUNCH"
       },
       {
-        text: "3　我想买点东西。",
+        text: "C　我想买点东西。",
         effect: () => { state.flags.wentMarket = true; state.energy -= 10; state.independence += 2; state.risk += 1; },
         next: "MARKET"
       },
       {
-        text: "4　你什么时候回来？",
+        text: "D　你什么时候回来？",
         effect: () => { state.relationships.hamid += 1; },
-        next: "C07"
+        next: "LUNCH"
       }
     ]
   },
@@ -358,33 +313,15 @@ Hamid 点点头。
   MARKET: {
     time: "09:50",
     label: "09:50 · 市场",
-    text: `你换好衣服。
+    text: `你换好衣服，检查了一下手机后出门。
 
-检查了一下手机。
-
-然后出门。
-
-Hamid 走在前面。
-
-你跟在后面。
+Hamid 走在前面，你跟在后面。
 
 街上的声音比家里大很多。
 
-汽车。
+汽车声、摩托车声、商贩叫卖声、脚步声……
 
-摩托车。
-
-商贩。
-
-脚步声。
-
-有人正在搬货。
-
-有人坐在路边喝茶。
-
-没有什么特别的事情发生。
-
-你只是走在街上。`,
+有人正在搬货，有人坐在路边喝茶。`,
     choices: [
       { text: "继续", next: "FLOUR" }
     ]
@@ -393,27 +330,19 @@ Hamid 走在前面。
   FLOUR: {
     time: "10:15",
     label: "10:15 · 面粉",
-    text: `Hamid 先去买茶。
-
-店主认识他。
-
-两个人开始讨论价格。
+    text: `Hamid 先去买茶，店主是他的老同学，两个人开始讨论价格。
 
 你站在旁边。
 
-面粉买好了。
-
-价格：
-
+面粉买好了，价格：
 500 AFN
 
 Hamid 付钱。
 
 你看了一眼自己的钱包。
-
 650 AFN
 
-你又想起那块蓝色布料。`,
+你又想起两周前看到的那块蓝色布料。`,
     choices: [
       { text: "继续", next: "C06" }
     ]
@@ -422,9 +351,7 @@ Hamid 付钱。
   C06: {
     time: "10:30",
     label: "10:30 · 蓝色布料",
-    text: `你走到那家店门口。
-
-店主看见你。
+    text: `你绕路走到那家店门口，店主看见你。
 
 “喜欢？”
 
@@ -434,9 +361,7 @@ Hamid 付钱。
 
 你摸了一下布料。
 
-很普通。
-
-但颜色很好看。`,
+很普通，但颜色很好看。`,
     choices: [
       {
         text: "A　买。",
@@ -467,9 +392,7 @@ Hamid 付钱。
 
 “不能。”
 
-你看着那块布。
-
-现在可以决定要不要买。`,
+你看着那块布，现在可以决定要不要买。`,
     choices: [
       {
         text: "买。",
@@ -492,29 +415,21 @@ Hamid 付钱。
   C07: {
     time: "11:40",
     label: "11:40 · 回家前",
-    text: `你们准备回家。
+    text: `太阳已经很高，你们准备回家。
 
-太阳已经很高。
-
-Hamid 买了一杯茶。
-
-你们坐在路边。
+Hamid 买了一杯茶，你们坐在路边。
 
 他问：
-
 “Laila 最近怎么样？”
 
 你说：
-
 “还好。”
 
 “还想学东西？”
 
 你点头。
 
-Hamid 没说话。
-
-喝了一口茶。`,
+Hamid 没说话，只是喝了一口茶。`,
     choices: [
       {
         text: "继续回家",
@@ -526,29 +441,25 @@ Hamid 没说话。
   DHUHR: {
     time: "11:56",
     label: "11:56 · Dhuhr",
-    text: `回家的路上，你注意到时间。
+    text: `回家的路上，你注意到时间。今天的晌礼时间到了。
 
-今天的晌礼时间到了。
-
-你们经过一处可以礼拜的地方。
-
-Hamid 停下来。
+你们经过一处可以礼拜的地方，Hamid 停下来。
 
 “我先去一下。”
 
 你点头。`,
     choices: [
       {
-        text: "1　一起去礼拜。",
+        text: "A　一起去礼拜。",
         effect: () => { state.flags.prayedDhuhr = true; },
         next: "LUNCH"
       },
       {
-        text: "2　在附近等。",
+        text: "B　在附近等。",
         next: "LUNCH"
       },
       {
-        text: "3　先回家。",
+        text: "C　先回家。",
         next: "LUNCH"
       }
     ]
@@ -559,23 +470,21 @@ Hamid 停下来。
     label: "13:05 · 午饭",
     text: `回到家。
 
-母亲已经准备好午饭。
-
-她看到面粉。
+母亲已经准备好午饭。她看到面粉。
 
 “买回来了？”
 
 Hamid：
 “嗯。”
 
-母亲点点头。
+母亲点点头，看着你手里的袋子。
 
-然后看向你手里的袋子。
+Laila 直接凑到你跟前。
 
 “你买了什么？”`,
     choices: [
       {
-        text: "1　“给你。”",
+        text: "A　“给你的。”",
         condition: () => state.flags.boughtBlueCloth,
         effect: () => {
           state.flags.gaveBlueClothToLaila = true;
@@ -587,7 +496,7 @@ Hamid：
         next: "AFTER_CLOTH"
       },
       {
-        text: "2　“是我的。”",
+        text: "B　“是我的。”",
         condition: () => state.flags.boughtBlueCloth,
         effect: () => {
           state.flags.keptBlueCloth = true;
@@ -598,16 +507,16 @@ Hamid：
         next: "AFTER_CLOTH"
       },
       {
-        text: "3　“还不知道。”",
+        text: "C　“晚点告诉你。”",
         condition: () => state.flags.boughtBlueCloth,
         effect: () => {
           state.flags.blueClothUndecided = true;
-          state.relationships.laila += 2;
+          state.relationships.laila += 1;
         },
         next: "AFTER_CLOTH"
       },
       {
-        text: "“没什么。”",
+        text: "D “没什么。”",
         condition: () => !state.flags.boughtBlueCloth,
         next: "AFTER_CLOTH"
       }
@@ -619,25 +528,17 @@ Hamid：
     label: "13:20 · 午饭后",
     text: `午饭后。
 
-Sami 躺在地毯上看手机。
+Sami 躺在地毯上看手机，母亲让他去洗碗。
 
-母亲让他去洗碗。
-
-“马上。”
-
-他没有动。
-
-母亲又说：
+他没有动，母亲又说：
 
 “Sami。”
 
 “知道了。”
 
-你笑了一下。
+你笑了一下，Sami 看你。
 
-Sami 看你。
-
-“你笑什么？”
+“笑什么？”
 
 “没什么。”`,
     choices: [
@@ -650,14 +551,11 @@ Sami 看你。
     label: "15:10 · 下午",
     text: `下午很安静。
 
-你回到房间。
-
-手机响了。
+你回到房间，手机响了。
 
 是邻居 Farzana。
 
 她问：
-
 “你最近还做缝纫吗？”
 
 你：
@@ -740,33 +638,17 @@ Sami 看你。
 
 “Mariam。”
 
-你出去。
-
-她正在准备礼拜。
+你走出房间，她正在准备礼拜。
 
 她问：
-
 “你做完了吗？”
 
 你摇摇头。
 
 她：
-
 “那先放一下。”
 
-你点点头。
-
-这里不设置选择。
-
-Mariam 暂时放下手里的事情。
-
-完成晡礼。
-
-然后回来。
-
-桌上的手机还亮着。
-
-Farzana 的消息还在那里。`,
+你暂时放下手里的事，完成晡礼。`,
     choices: [
       {
         text: "继续",
@@ -779,13 +661,9 @@ Farzana 的消息还在那里。`,
   LAILA_AFTERNOON: {
     time: "16:20",
     label: "16:20 · Laila",
-    text: `Laila 进来。
-
-她拿着早上的英语书。
+    text: `Laila 拿着早上的英语书走进你的房间。
 
 “姐姐。”
-
-“嗯？”
 
 “你昨天说过，如果我以后不能去学校……”
 
@@ -794,50 +672,25 @@ Farzana 的消息还在那里。`,
 你看着她。`,
     choices: [
       {
-        text: "1　我们可以在家里继续学。",
+        text: "A　我们可以在家里继续学。",
         effect: () => { state.relationships.laila += 4; state.flags.homeLearning = true; },
-        next: "EVENING"
+        next: "MAGHRIB"
       },
       {
-        text: "2　你会有办法的。",
+        text: "B　你会有办法的。",
         effect: () => { state.relationships.laila += 2; },
-        next: "EVENING"
+        next: "MAGHRIB"
       },
       {
-        text: "3　别想那么远。",
+        text: "C　别想那么远。",
         effect: () => { state.relationships.laila -= 1; },
-        next: "EVENING"
+        next: "MAGHRIB"
       },
       {
-        text: "4　我不知道。",
+        text: "D　我不知道。",
         effect: () => { state.happiness += 0; },
-        next: "EVENING"
+        next: "MAGHRIB"
       }
-    ]
-  },
-
-  EVENING: {
-    time: "17:30",
-    label: "17:30 · 傍晚",
-    text: `你开始考虑 Farzana 的工作。
-
-300 AFN。
-
-不算很多。
-
-但也不是一笔可以随便放弃的钱。
-
-如果接受：
-
-明天下午之前必须做完。
-
-如果不接受：
-
-明天会轻松一些。
-
-你把手机放在桌上。`,
-    choices: [
-      { text: "继续", next: "MAGHRIB" }
     ]
   },
 
@@ -846,13 +699,7 @@ Farzana 的消息还在那里。`,
     label: "18:33 · Maghrib",
     text: `天开始暗下来。
 
-母亲叫大家回来。
-
-屋里慢慢安静。
-
-你完成昏礼。
-
-外面的光一点点变暗。`,
+屋里慢慢安静，大家完成昏礼。`,
     choices: [
       {
         text: "继续",
@@ -865,23 +712,17 @@ Farzana 的消息还在那里。`,
   DINNER: {
     time: "19:05",
     label: "19:05 · 晚饭",
-    text: `一家人坐在一起。
-
-Sami 又拿出了手机。
+    text: `一家人坐在一起吃晚饭，Sami 又拿出了手机。
 
 母亲看了他一眼。
 
 “吃饭的时候不要看。”
 
-他把手机放下。
+他撇着嘴把手机放下。
 
-Hamid 笑了一下。
+Hamid 笑了一下，母亲瞪了他一眼。
 
-母亲瞪他。
-
-你忍不住笑了。
-
-母亲也笑了一下。`,
+你忍不住笑了，母亲也笑了一下。`,
     choices: [
       { text: "继续", next: "ISHA" }
     ]
@@ -890,9 +731,7 @@ Hamid 笑了一下。
   ISHA: {
     time: "19:46",
     label: "19:46 · Isha",
-    text: `晚饭后。
-
-家里逐渐安静下来。
+    text: `晚饭后，家里逐渐安静下来。
 
 你完成宵礼。`,
     choices: [
@@ -915,25 +754,18 @@ Hamid 笑了一下。
           ? "那块蓝色的布已经不在你的房间里。"
           : "";
 
-      return `你回到自己的房间。
-
-手机还有 12%。
+      return `你回到自己的房间，手机还有 12% 的电量。
 
 Farzana 又发来一条消息：
+“要记得哦。”
 
-“别忘了明天。”
-
-你看着这条消息。
-
-然后打开钱包。
+你看着这条消息，打开钱包。
 
 ${money} AFN
 
 ${cloth}
 
-你躺下来。
-
-窗外还有一点声音。
+你躺下来，窗外还有一点声音。
 
 你想到明天。`;
     },

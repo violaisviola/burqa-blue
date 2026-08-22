@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Burka Blue — Demo v0.1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="game-shell">
+    <header class="header">
+      <div>
+        <div class="title">BURKA BLUE</div>
+        <div class="subtitle">Demo v0.1 · Day 1</div>
+      </div>
+      <button id="restartBtn" class="small-btn">重新开始</button>
+    </header>
+
+    <section class="status-bar">
+      <span id="dateStatus">2026年8月22日 · 喀布尔</span>
+      <span id="timeStatus">04:05</span>
+    </section>
+
+    <section class="story-card">
+      <div id="sceneLabel" class="scene-label"></div>
+      <div id="storyText" class="story-text"></div>
+      <div id="choices" class="choices"></div>
+    </section>
+
+    <section class="hud">
+      <div><span>金钱</span><strong id="money">650 AFN</strong></div>
+      <div><span>精力</span><strong id="energy">100</strong></div>
+      <div><span>家庭</span><strong id="family">70</strong></div>
+      <div><span>Laila</span><strong id="laila">70</strong></div>
+      <div><span>Hamid</span><strong id="hamid">70</strong></div>
+      <div><span>独立性</span><strong id="independence">50</strong></div>
+    </section>
+
+    <details class="debug">
+      <summary>Debug State</summary>
+      <pre id="debugState"></pre>
+    </details>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>

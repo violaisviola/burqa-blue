@@ -106,8 +106,8 @@ body {
 }
 
 .choice-btn:hover {
-  border-color: var(--accent);
-  background: #26292c;
+  border-color: #c8c3b8;
+  background: #e7e4dc;
 }
 
 .hud {
